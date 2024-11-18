@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<div>
+    {% block container %}
+    <link rel="stylesheet" href="{% static 'styles/style2.css' %}">
+    {% comment %} <script src="{% static 'js/main.js' %}" ></script> {% endcomment %}
+
+    <div class='mainbody'>
+        <a href="{% url 'newitem' %}">New</a>
+            <div class="mainSection">
+                {% for item in items %}
+                <form action="{% url 'getdetails' item.id %}" method="GET">
+                    {% csrf_token %}
+                    <div class="card">
+                        <div class="card-item">{{item.itemName}}</div>
+                        <div class="card-item">{{item.description}}</div>
+                        <div class="card-item">{{item.count}}</div>
+                        <div class="card-item">{{item.actualCount}}</div>
+                        <div class="card-item">{{item.diff}}</div>
+                        <button type="submit" >Details</button>
+                        {% comment %} <a href="{% url 'getdetails item.id' %}"></a> {% endcomment %}
+                    </div>
+                </form>
+                {% endfor %}
+            </div>
+        </div>
+        {% comment %} <script src="{% static 'js/main.js' %}"  type="text/javascript"></script> {% endcomment %}
+        {% comment %} <script>
+            cards = document.querySelectorAll('.card')
+            for (card of cards)
+            {% comment %} for (item of items) {% endcomment %}
+                {% comment %} item = document.getElementsByClassName('.card-item')
+                    if (item.innerHTML < 0)
+                        item.style.color = "red";
+                    else if (item.innerHTML = 0)
+                        item.style.color = "green"  {% endcomment %}
+                
+            
+        {% comment %} </script>  {% endcomment %}
+        <script src="{% static 'js/main.js' %}" ></script>
+        {% endblock container %}
+</div>

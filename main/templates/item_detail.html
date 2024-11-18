@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block container %}
+<link rel="stylesheet" href="{% static 'styles/style2.css' %}">
+<div class="detailscreen">
+    <section class="card center ">
+        <div>{{item.itemName}}</div>
+        <div>{{item.group}}</div>
+        <div>{{item.count}}</div>
+        <div>{{item.actualCount}}</div>
+    </section>
+    <a href="{% url 'updatingform' item.id %}">Update</a>
+</div>
+
+{% endblock container %}
+
