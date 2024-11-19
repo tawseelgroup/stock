@@ -34,11 +34,9 @@ class ItemDetailView(DetailView):
         return Item.objects.filter(pk=self.kwargs['pk'])
     
 
-
-
-def updatingform(request, pk):
+def updatingform(request, id):
     # Get the specific item by its primary key (pk)
-    item = get_object_or_404(Item, pk=pk)
+    item = get_object_or_404(Item, pk=id)
     
     # Bind the form with the item's current data or the submitted data
     if request.method == 'POST':
@@ -49,10 +47,7 @@ def updatingform(request, pk):
             # return redirect('item_detail', pk=item.pk)  # Redirect to a detail view or list view
     else:
         form = ItemForm(instance=item)  # Pre-fill the form with the item's data
-
     return render(request, 'updatingform.html', {'form': form})
-    
-
     
     
 def newitem(request):
@@ -61,7 +56,7 @@ def newitem(request):
 
 
 def additem(request):
-    form = ItemForm(request.POST)
+    form = ItemForm(request.POST, use_required_attribute=False)
     group = Group.objects.get(pk=1)
     store = Store.objects.get(pk=1)
     if request.method == 'POST':

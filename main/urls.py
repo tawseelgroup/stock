@@ -7,6 +7,6 @@ urlpatterns = [
     path('item-details/<int:pk>', ItemDetailView.as_view(), name='getdetails'),
     path('new-item', views.newitem, name='newitem'),
     path('additem', views.additem, name='additem'),
-    path('item/<int:pk>/edit/', views.updatingform, name='updatingform'),
+    path('item/<int:id>/edit/', views.updatingform, name='updatingform'),
     # path('item/<int:pk>/edit/', views.update_item, name='update_item'),
 ]

@@ -38,6 +38,16 @@
     font-size: 18px !important;
     font-weight: bold;
     margin: auto;
+    background-color: #fff;
+}
+
+.btn{
+    background-color: #91830c;
+    color: white;
+    padding: 10px 20px;
+    position: absolute;
+    top: 80px;
+    left: 5px
 }
 
 

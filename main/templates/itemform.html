@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block container %}
+<link rel="stylesheet" href="{% static 'styles/formstyle.css' %}">
 <form action="additem" method="POST">
     {% csrf_token %}
-    <link rel="stylesheet" href="{% static 'styles/formstyle.css' %}">
+    <div style='width: 30%; margin: auto; padding: 0 20px'>
         {{form.as_div}} 
         <button type="submit">Add</button>
+    </div>
     </form>
 
 {% endblock container %}
