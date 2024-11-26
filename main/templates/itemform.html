@@ -3,12 +3,66 @@
 
 {% block container %}
 <link rel="stylesheet" href="{% static 'styles/formstyle.css' %}">
-<form action="additem" method="POST">
+{% comment %} <form action="additem" method="POST">
     {% csrf_token %}
     <div style='width: 30%; margin: auto; padding: 0 20px'>
         {{form.as_div}} 
         <button type="submit">Add</button>
     </div>
+</form> {% endcomment %}
+<div style="width: 85%; margin: auto; padding: 10px; background-color: #fff; border: 1px solid lightgray">
+    {% comment %} <form action="/s={{ s }}/a={{ a }}/comment/q={{ q }}/" method="post">{% csrf_token %} {% endcomment %}
+    
+    
+        {% comment %} <form action="additem" method="post">
+        {% csrf_token %}
+    
+        {% for field in form %}
+                <div class="fieldWrapper">
+                    {# uncomment to display field errors #}
+                    {# {{ field.errors }} #} 
+                    <br>
+                    <div style='color: #333 font-weight: bold'>{{ field.label_tag }}</div> 
+                    <div>{{ field }}</div>
+                </div>
+        {% endfor %}
+        <br><br> {% endcomment %}
+    
+    
+        <form action="additem" method="post">
+        {% csrf_token %}
+            <div class="fieldWrapper">
+                <div>
+                    <div style='color: #333 font-weight: bold; font-family: sans-serif'>{{ store.field.label_tag }}</div> 
+                    <div>{{ form.itemName }}</div>
+                </div>
+                <div>
+                    <div style='color: #333 font-weight: bold'>{{ store.field.label_tag }}</div> 
+                    <div>{{ form.itemDescription }}</div>
+                </div>
+                <div>
+                    <div style='color: #333 font-weight: bold'>{{ store.field.label_tag }}</div> 
+                    <div>{{ form.store }}</div>
+                </div>
+                <div>
+                    <div style='color: #333 font-weight: bold'>{{ store.field.label_tag }}</div> 
+                    <div>{{ form.group }}</div>
+                </div>
+                <div style="display: flex; justify-content: space-between">
+                    <span class="sep">
+                        <div style='color: #333 font-weight: bold; position: relative; top: 16px; right: 5px'>Count</div> 
+                        <div>{{ form.count }}</div>
+                    </span>
+                    <span class="sep">
+                        <span style='color: #333 font-weight: bold; position: relative; top: 16px; right: 5px'>Actual Count</span> 
+                        <span>{{ form.actualCount }}</span>
+                    </span>
+                </div>
+            </div>
+
+        <br><br>
+        <button type="submit">Send your comment</button>
     </form>
+</div>
 
 {% endblock container %}

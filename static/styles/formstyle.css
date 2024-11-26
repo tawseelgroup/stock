@@ -1,12 +1,30 @@
 .inputs{
-    padding: 5px;
+    padding: 8px 12px;
+    width: 90%;
     border-radius: 3px;
-    border: 1px solid #ccc;
+    border: 1px solid #cecece;
     margin: 10px 0;
+    font-weight: bold;
+    /* font-family: sans-serif; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button{
+    background-color: #1f883d;
+    color: white;
+    padding: 8px 16px;
+    border: steelblue solid 1px;
+    border-radius: 3px;
 }
 
 .inputs:focus{
     outline-width: 1px;
     outline-color: rgb(9, 171, 235);
     outline-style: solid;
+}
+
+.sep{
+    width: 30%;
+    display: flex;
+
 }
